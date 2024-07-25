@@ -64,3 +64,83 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# FastCGI Process Manager (FPM)
+# Pool configuration values.
+# See: https://www.php.net/manual/en/install.fpm.configuration.php
+pool:
+  prefix: ""
+  user: www-data
+  group: www-data
+  
+  listen:
+    backlog: 511
+    owner: ""
+    group: ""
+    mode: "0660"
+    acl_users: ""
+    acl_groups: ""
+    allowed_clients: 0.0.0.0
+    setfib: ""
+  
+  process:
+    priority: ""
+    dumpable: "no"
+  
+  pm:
+    mode: dynamic
+    max_children: 5
+    start_servers: 2
+    min_spare_servers: 1
+    max_spare_servers: 3
+    process_idle_timeout: 10s
+    max_requests: 0
+    status_path: ""
+
+  ping:
+    path: ""
+    response: pong
+
+  access:
+    log: ""
+    format: "%R - %u %t \"%m %r\" %s"
+
+  slowlog: ""
+  request_slowlog_timeout: ""
+  request_slowlog_trace_depth: ""
+  request_terminate_timeout: ""
+  request_terminate_timeout_track_finished: ""
+
+  rlimit_files: ""
+  rlimit_core: 0
+
+  chroot: ""
+  chdir: ""
+
+  catch_workers_output: "no"
+  decorate_workers_output: "yes"
+
+  security:
+    limit_extensions: .php
+
+  clear_env: "yes"
+
+  env:
+    localhost: "$HOSTNAME"
+    path: /usr/local/bin:/usr/bin:/bin
+    tmp: /tmp
+    tmpdir: /tmp
+    temp: /tmp
+
+  php_value: {}
+
+  php_flag:
+    display_errors: "off"
+
+  php_admin_value:
+    sendmail_path: "/usr/sbin/sendmail -t -i -f www@my.domain.com"
+    error_log: /dev/stderr
+    memory_limit: 32M
+
+  php_admin_flag:
+    log_errors: "on"
