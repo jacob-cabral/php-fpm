@@ -8,8 +8,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: fpm
       protocol: TCP
-      name: http
+      name: fpm
   selector:
     {{- include "php-fpm.selectorLabels" . | nindent 4 }}
