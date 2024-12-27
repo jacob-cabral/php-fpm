@@ -5,8 +5,11 @@ metadata:
   labels:
     {{- include "php-fpm.labels" . | nindent 4 }}
 data:
+  {{- if .Values.pool.extraConfFiles }}
+  {{ (.Files.Glob .Values.pool.extraConfFiles).AsConfig | nindent 2 }}
+  {{- end }}
   {{ (.Files.Glob "files/php-fpm.d/*").AsConfig | nindent 2 }}
-  www.conf: |
+  www.conf: |-
     ; Start a new pool named 'www'.
     ; the variable $pool can be used in any directive and will be replaced by the
     ; pool name ('www' here)
