@@ -5,28 +5,7 @@ metadata:
   labels:
     {{- include "php-fpm.labels" . | nindent 4 }}
 data:
-  docker.conf: |
-    [global]
-    error_log = /proc/self/fd/2
-
-    ; https://github.com/docker-library/php/pull/725#issuecomment-443540114
-    log_limit = 8192
-
-    [www]
-    ; if we send this to /proc/self/fd/1, it never appears
-    access.log = /proc/self/fd/2
-
-    clear_env = no
-
-    ; Ensure worker stdout and stderr are sent to the main error log.
-    ; catch_workers_output = yes
-    ; decorate_workers_output = no
-  zz-docker.conf: |
-    [global]
-    daemonize = no
-
-    [www]
-    listen = {{ .Values.service.port }}
+  {{ (.Files.Glob "files/php-fpm.d/*").AsConfig | nindent 2 }}
   www.conf: |
     ; Start a new pool named 'www'.
     ; the variable $pool can be used in any directive and will be replaced by the
@@ -63,7 +42,7 @@ data:
     ;                            (IPv6 and IPv4-mapped) on a specific port;
     ;   '/path/to/unix/socket' - to listen on a unix socket.
     ; Note: This value is mandatory.
-    listen = 127.0.0.1:{{ .Values.service.port }}
+    listen = {{ .Values.service.port }}
 
     ; Set listen(2) backlog.
     ; Default Value: 511 (-1 on FreeBSD and OpenBSD)

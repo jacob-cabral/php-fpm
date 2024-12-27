@@ -102,7 +102,7 @@ pool:
     response: pong
 
   access:
-    log: ""
+    log: /dev/stdout
     format: "%R - %u %t \"%m %r\" %s"
 
   slowlog: ""
@@ -117,13 +117,13 @@ pool:
   chroot: ""
   chdir: ""
 
-  catch_workers_output: "no"
-  decorate_workers_output: "yes"
+  catch_workers_output: "yes"
+  decorate_workers_output: "no"
 
   security:
     limit_extensions: .php
 
-  clear_env: "yes"
+  clear_env: "no"
 
   env:
     localhost: "$HOSTNAME"
