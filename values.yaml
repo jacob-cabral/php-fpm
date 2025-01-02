@@ -125,24 +125,4 @@ pool:
 
   clear_env: "no"
 
-  env:
-    localhost: "$HOSTNAME"
-    path: /usr/local/bin:/usr/bin:/bin
-    tmp: /tmp
-    tmpdir: /tmp
-    temp: /tmp
-
-  php_value: {}
-
-  php_flag:
-    display_errors: "off"
-
-  php_admin_value:
-    sendmail_path: "/usr/sbin/sendmail -t -i -f www@my.domain.com"
-    error_log: /dev/stderr
-    memory_limit: 32M
-
-  php_admin_flag:
-    log_errors: "on"
-
-  extraConfFiles: ""
+extraConfFiles: {}
