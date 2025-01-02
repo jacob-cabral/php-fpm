@@ -29,9 +29,14 @@ data:
     ; Default Value: none
     {{- include "php-fpm.pool.prefix" . | nindent 4 }}
 
-    ; Unix user/group of processes
-    ; Note: The user is mandatory. If the group is not set, the default user's group
-    ;       will be used.
+    ; Unix user/group of the child processes. This can be used only if the master
+    ; process running user is root. It is set after the child process is created.
+    ; The user and group can be specified either by their name or by their numeric
+    ; IDs.
+    ; Note: If the user is root, the executable needs to be started with
+    ;       --allow-to-run-as-root option to work.
+    ; Default Values: The user is set to master process running user by default.
+    ;                 If the group is not set, the user's group is used.
     user = {{ default "www-data" .Values.pool.user }}
     group = {{ default "www-data" .Values.pool.group }}
 
@@ -77,6 +82,8 @@ data:
     ;                                    state (waiting to process). If the number
     ;                                    of 'idle' processes is greater than this
     ;                                    number then some children will be killed.
+    ;             pm.max_spawn_rate    - the maximum number of rate to spawn child
+    ;                                    processes at once.
     ;  ondemand - no children are created at startup. Children will be forked when
     ;             new requests will connect. The following parameter are used:
     ;             pm.max_children           - the maximum number of children that
@@ -135,13 +142,13 @@ data:
     ;  %d: time taken to serve the request
     ;      it can accept the following format:
     ;      - %{seconds}d (default)
-    ;      - %{miliseconds}d
-    ;      - %{mili}d
+    ;      - %{milliseconds}d
+    ;      - %{milli}d
     ;      - %{microseconds}d
     ;      - %{micro}d
     ;  %e: an environment variable (same as $_ENV or $_SERVER)
     ;      it must be associated with embraces to specify the name of the env
-    ;      variable. Some exemples:
+    ;      variable. Some examples:
     ;      - server specifics like: %{REQUEST_METHOD}e or %{SERVER_PROTOCOL}e
     ;      - HTTP headers like: %{HTTP_HOST}e or %{HTTP_USER_AGENT}e
     ;  %f: script filename
@@ -171,12 +178,12 @@ data:
     ;  %t: server time the request was received
     ;      it can accept a strftime(3) format:
     ;      %d/%b/%Y:%H:%M:%S %z (default)
-    ;      The strftime(3) format must be encapsuled in a %{<strftime_format>}t tag
+    ;      The strftime(3) format must be encapsulated in a %{<strftime_format>}t tag
     ;      e.g. for a ISO8601 formatted timestring, use: %{%Y-%m-%dT%H:%M:%S%z}t
     ;  %T: time the log has been written (the request has finished)
     ;      it can accept a strftime(3) format:
     ;      %d/%b/%Y:%H:%M:%S %z (default)
-    ;      The strftime(3) format must be encapsuled in a %{<strftime_format>}t tag
+    ;      The strftime(3) format must be encapsulated in a %{<strftime_format>}t tag
     ;      e.g. for a ISO8601 formatted timestring, use: %{%Y-%m-%dT%H:%M:%S%z}t
     ;  %u: remote user
     ;
@@ -198,7 +205,7 @@ data:
 
     ; Redirect worker stdout and stderr into main error log. If not set, stdout and
     ; stderr will be redirected to /dev/null according to FastCGI specs.
-    ; Note: on highloaded environement, this can cause some delay in the page
+    ; Note: on highloaded environment, this can cause some delay in the page
     ; process time (several ms).
     ; Default Value: no
     catch_workers_output = {{ default "no" .Values.pool.catch_workers_output }}

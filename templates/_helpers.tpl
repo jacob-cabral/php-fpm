@@ -86,8 +86,8 @@ Default Value: none
 {{- end }}
 
 {{/*
-; Set listen(2) backlog.
-; Default Value: 511 (-1 on Linux, FreeBSD and OpenBSD)
+Set listen(2) backlog.
+Default Value: 511 (-1 on Linux, FreeBSD and OpenBSD)
 */}}
 {{- define "php-fpm.pool.listen.backlog" -}}
 {{- if and .Values.pool.listen .Values.pool.listen.backlog }}
@@ -167,8 +167,9 @@ Default Value: no set
 {{- end }}
 
 {{/*
-Set the process dumpable flag (PR_SET_DUMPABLE prctl) even if the process user
-or group is differrent than the master process user. It allows to create process
+Set the process dumpable flag (PR_SET_DUMPABLE prctl for Linux or
+PROC_TRACE_CTL procctl for FreeBSD) even if the process user
+or group is different than the master process user. It allows to create process
 core dump and ptrace the process for the pool user.
 Default Value: no
 */}}
@@ -215,7 +216,7 @@ Default Value: 0
 
 {{/*
 The URI to view the FPM status page. If this value is not set, no URI will be
-recognized as a status page. It shows the following informations:
+recognized as a status page. It shows the following information:
   pool                 - the name of the pool;
   process manager      - static, dynamic or ondemand;
   start time           - the date and time FPM has started;
