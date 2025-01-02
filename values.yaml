@@ -69,23 +69,8 @@ affinity: {}
 # Pool configuration values.
 # See: https://www.php.net/manual/en/install.fpm.configuration.php
 pool:
-  prefix: ""
   user: www-data
   group: www-data
-  
-  listen:
-    backlog: 511
-    owner: ""
-    group: ""
-    mode: "0660"
-    acl_users: ""
-    acl_groups: ""
-    allowed_clients: 0.0.0.0
-    setfib: ""
-  
-  process:
-    priority: ""
-    dumpable: "no"
   
   pm:
     mode: dynamic
@@ -93,35 +78,12 @@ pool:
     start_servers: 2
     min_spare_servers: 1
     max_spare_servers: 3
-    process_idle_timeout: 10s
-    max_requests: 0
-    status_path: ""
-
-  ping:
-    path: ""
-    response: pong
 
   access:
     log: /dev/stdout
-    format: "%R - %u %t \"%m %r\" %s"
-
-  slowlog: ""
-  request_slowlog_timeout: ""
-  request_slowlog_trace_depth: ""
-  request_terminate_timeout: ""
-  request_terminate_timeout_track_finished: ""
-
-  rlimit_files: ""
-  rlimit_core: 0
-
-  chroot: ""
-  chdir: ""
 
   catch_workers_output: "yes"
   decorate_workers_output: "no"
-
-  security:
-    limit_extensions: .php
 
   clear_env: "no"
 
