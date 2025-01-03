@@ -1,0 +1,56 @@
+name: CI/CD: Semantic Versioning and Helm Chart Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Semantic Release and Publish Helm Chart
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js (required for semantic-release)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run semantic-release
+      - name: Run Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release
+
+      # Install Helm
+      - name: Install Helm
+        run: |
+          curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+          chmod +x get_helm.sh
+          ./get_helm.sh
+
+      # Package the Helm Chart
+      - name: Package Helm Chart
+        run: |
+          helm lint charts/
+          helm package charts/ --destination ./charts-packaged
+
+      # Publish the Helm Chart to Artifact Hub
+      - name: Publish to Artifact Hub
+        uses: helmpack/chart-releaser-action@v1.4.0
+        with:
+          charts_dir: charts/
+          packages_dir: charts-packaged/
+        env:
+          CR_TOKEN: ${{ secrets.CR_TOKEN }}
