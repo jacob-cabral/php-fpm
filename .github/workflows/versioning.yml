@@ -9,6 +9,8 @@ jobs:
   semantic-release:
     name: Version and Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       # Checkout the repository
       - name: Checkout Code
