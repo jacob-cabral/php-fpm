@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/jacob-cabral/php-fpm/compare/v1.1.3...v1.1.4) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** change the Helm Chart version based on the Semantic Release ([5dd3380](https://github.com/jacob-cabral/php-fpm/commit/5dd3380d6119d01d612d0cc85130395f04392153))
+
 ## [1.1.3](https://github.com/jacob-cabral/php-fpm/compare/v1.1.2...v1.1.3) (2025-01-05)
 
 
