@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/jacob-cabral/php-fpm/compare/v1.0.1...v1.1.0) (2025-01-05)
+
+
+### Bug Fixes
+
+* add keywords to meet the ArtifactHub requirements ([96805fb](https://github.com/jacob-cabral/php-fpm/commit/96805fb8c09a7badb38f9ebb9f24bb6236e15a2f))
+
+
+### Features
+
+* **ci:** package and publish the Helm Chart ([2214c3c](https://github.com/jacob-cabral/php-fpm/commit/2214c3c34dafe54bdf534a1f1163e6d7f761223f))
+
 ## [1.0.1](https://github.com/jacob-cabral/php-fpm/compare/v1.0.0...v1.0.1) (2025-01-03)
 
 
