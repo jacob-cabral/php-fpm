@@ -70,8 +70,7 @@ jobs:
         id: package_helm_chart
         run: |
           helm lint
-          mkdir dist
-          helm package . --destination dist
+          helm package .
 
       # Get the repository name dynamically
       - name: Extract repository name
@@ -82,6 +81,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ env.RELEASE_URL }}
-          asset_path: dist/${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
+          asset_path: ${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
           asset_name: ${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
           asset_content_type: application/gzip
