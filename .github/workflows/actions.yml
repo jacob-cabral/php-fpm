@@ -33,7 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx semantic-release > release_output.txt
-          echo "RELEASE_URL=$(grep -o 'https://github.com/.*' release_output.txt | head -n 1)" >> $GITHUB_ENV
+          echo "RELEASE_URL=$(grep -oP '(?<=Published GitHub release: )\S+' release_output.txt | head -n 1)" >> $GITHUB_ENV
 
       # Install Helm
       - name: Install Helm
