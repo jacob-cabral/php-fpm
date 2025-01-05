@@ -35,7 +35,7 @@ jobs:
         run: |
           npx semantic-release --dry-run | tee release_output.txt
           echo "NEW_VERSION=$(grep -oP '(?<=The next release version is )\S+' release_output.txt)" >> $GITHUB_ENV
-
+      
       # Fail if the NEW_VERSION is empty
       - name: Ensure non empty Helm Chart version
         if: ${{ env.NEW_VERSION }} == ""
@@ -47,23 +47,6 @@ jobs:
       - name: Update Helm Chart version
         run: |
           sed -i "s/^version: .*/version: ${{ env.NEW_VERSION }}/" Chart.yaml
-
-      # Commit updated Chart.yaml
-      - name: Commit updated Chart.yaml
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add Chart.yaml
-          git commit -m "chore: update Chart.yaml version to ${{ env.NEW_VERSION }}"
-          git push origin main
-
-      # Create GitHub tag with Semantic Release
-      - name: Run Semantic Release (Tag Creation)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npx semantic-release > release_output.txt
-          echo "RELEASE_URL=$(grep -oP '(?<=Published GitHub release: )\S+' release_output.txt | head -n 1)" >> $GITHUB_ENV
 
       # Install Helm
       - name: Install Helm
@@ -77,17 +60,21 @@ jobs:
         id: package_helm_chart
         run: |
           helm lint
-          helm package . --destination dist
+          helm package . --destination helm-releases
 
-      # Get the repository name dynamically
-      - name: Extract repository name
-        run: echo "REPOSITORY_NAME=$(basename ${{ github.repository }})" >> $GITHUB_ENV
+      # Commit changes
+      - name: Commit changes
+        run: |
+          git config user.name "${{ github.event.pusher.name }}"
+          git config user.email "${{ github.event.pusher.email }}"
+          git add Chart.yaml
+          git add helm-releases
+          git commit -m "chore: update the Helm Chart version and add its package"
+          git push
 
-      # Attach Helm Chart package as a release asset
-      - name: Upload Helm Chart as Release Asset
-        uses: actions/upload-artifact@v4
-        with:
-          upload_url: ${{ env.RELEASE_URL }}
-          path: dist/${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
-          name: ${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
-          if-no-files-found: error
+      # Create GitHub tag with Semantic Release
+      - name: Run Semantic Release (Tag Creation)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx semantic-release
