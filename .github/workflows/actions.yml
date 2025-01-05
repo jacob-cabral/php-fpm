@@ -43,8 +43,8 @@ jobs:
       # Package the Helm Chart
       - name: Package Helm Chart
         run: |
-          helm lint .
-          helm package charts/ --destination ./charts-packaged
+          helm lint
+          helm package .
 
       # Get the repository name dynamically
       - name: Extract repository name
@@ -55,6 +55,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.semantic_release.outputs.release_url }}
-          asset_path: ./charts-packaged/*.tgz
+          asset_path: ${{ env.REPOSITORY_NAME }}.tgz
           asset_name: ${{ env.REPOSITORY_NAME }}.tgz
           asset_content_type: application/gzip
