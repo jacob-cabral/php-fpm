@@ -38,10 +38,12 @@ jobs:
       
       # Fail if the NEW_VERSION is empty
       - name: Ensure non empty Helm Chart version
-        if: ${{ env.NEW_VERSION }} == ""
         run: |
-          echo "Error. The Helm Chart version cannot be empty."
-          exit 1
+          if [ -z "${{ env.NEW_VERSION }}" ]
+          then
+            echo "Error. The Helm Chart version cannot be empty."
+            exit 1
+          fi
 
       # Update Chart.yaml with the new version
       - name: Update Helm Chart version
