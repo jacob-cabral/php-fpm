@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/jacob-cabral/php-fpm/compare/v1.1.0...v1.1.1) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** change the Helm Chart path ([49839fc](https://github.com/jacob-cabral/php-fpm/commit/49839fc02b71788178c6d6c7f6fd83032149fd32))
+
 # [1.1.0](https://github.com/jacob-cabral/php-fpm/compare/v1.0.1...v1.1.0) (2025-01-05)
 
 
