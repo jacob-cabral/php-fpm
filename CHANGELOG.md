@@ -1,3 +1,12 @@
+## [1.1.8](https://github.com/jacob-cabral/php-fpm/compare/v1.1.7...v1.1.8) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** add the Helm Chart version validation ([713ba7e](https://github.com/jacob-cabral/php-fpm/commit/713ba7e5667941e3f60464a5e6c406eea80f42e5))
+* **ci:** change the conditional validation ([08bbb58](https://github.com/jacob-cabral/php-fpm/commit/08bbb58c56174da7f9174f5f2b031223e9ba4108))
+* **ci:** change the Helm Chart package retention approach ([b92f3a3](https://github.com/jacob-cabral/php-fpm/commit/b92f3a32797b1c1620fa515c640b382185bf899b))
+
 ## [1.1.7](https://github.com/jacob-cabral/php-fpm/compare/v1.1.6...v1.1.7) (2025-01-05)
 
 
