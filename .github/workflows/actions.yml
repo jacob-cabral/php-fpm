@@ -64,7 +64,7 @@ jobs:
       
       # Create or update the index file
       - name: Index the Helm Chart repository
-        run: helm repo index helm-releases/ --url "https://github.com/${{ github.repository }}/helm-releases/"
+        run: helm repo index helm-releases/ --url "https://github.com/${{ github.repository }}/tree/main/helm-releases/"
 
       # Commit changes
       - name: Commit changes
