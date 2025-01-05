@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/jacob-cabral/php-fpm/compare/v1.1.4...v1.1.5) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** change the @semantic-release/github plugin assets ([e680583](https://github.com/jacob-cabral/php-fpm/commit/e680583b27edc409e6c88dad7b5c0b79e4426bb9))
+
 ## [1.1.4](https://github.com/jacob-cabral/php-fpm/compare/v1.1.3...v1.1.4) (2025-01-05)
 
 
