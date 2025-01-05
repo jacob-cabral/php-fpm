@@ -1,3 +1,10 @@
+## [1.1.7](https://github.com/jacob-cabral/php-fpm/compare/v1.1.6...v1.1.7) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** update the actions/update-artifact to v4 ([2cfe3ad](https://github.com/jacob-cabral/php-fpm/commit/2cfe3ad92c44b5d48b1be3fc8279fe7b42925670))
+
 ## [1.1.6](https://github.com/jacob-cabral/php-fpm/compare/v1.1.5...v1.1.6) (2025-01-05)
 
 
