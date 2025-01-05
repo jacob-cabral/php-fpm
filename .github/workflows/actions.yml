@@ -1,4 +1,4 @@
-name: CI/CD: Semantic Versioning and Helm Chart Release
+name: Semantic Versioning and Helm Chart Release
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    name: Semantic Release and Publish Helm Chart
+    name: Semantic Release and Attach Helm Chart to GitHub Release
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -43,14 +43,18 @@ jobs:
       # Package the Helm Chart
       - name: Package Helm Chart
         run: |
-          helm lint charts/
+          helm lint .
           helm package charts/ --destination ./charts-packaged
 
-      # Publish the Helm Chart to Artifact Hub
-      - name: Publish to Artifact Hub
-        uses: helmpack/chart-releaser-action@v1.4.0
+      # Get the repository name dynamically
+      - name: Extract repository name
+        run: echo "REPOSITORY_NAME=$(basename ${{ github.repository }})" >> $GITHUB_ENV
+
+      # Attach Helm Chart package as a release asset
+      - name: Upload Helm Chart as Release Asset
+        uses: actions/upload-release-asset@v1
         with:
-          charts_dir: charts/
-          packages_dir: charts-packaged/
-        env:
-          CR_TOKEN: ${{ secrets.CR_TOKEN }}
+          upload_url: ${{ steps.semantic_release.outputs.release_url }}
+          asset_path: ./charts-packaged/*.tgz
+          asset_name: ${{ env.REPOSITORY_NAME }}.tgz
+          asset_content_type: application/gzip
