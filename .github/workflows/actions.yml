@@ -70,7 +70,7 @@ jobs:
         id: package_helm_chart
         run: |
           helm lint
-          helm package .
+          helm package . --destination dist
 
       # Get the repository name dynamically
       - name: Extract repository name
@@ -78,9 +78,9 @@ jobs:
 
       # Attach Helm Chart package as a release asset
       - name: Upload Helm Chart as Release Asset
-        uses: actions/upload-release-asset@v1
+        uses: actions/upload-artifact@v4
         with:
           upload_url: ${{ env.RELEASE_URL }}
-          asset_path: ${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
-          asset_name: ${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
-          asset_content_type: application/gzip
+          path: dist/${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
+          name: ${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
+          if-no-files-found: error
