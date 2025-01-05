@@ -27,8 +27,31 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # Run semantic-release
-      - name: Run Semantic Release
+      # Run Semantic Release to determine the version
+      - name: Run Semantic Release (Version Check)
+        id: semantic_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx semantic-release --dry-run | tee release_output.txt
+          echo "NEW_VERSION=$(grep -oP '(?<=The next release version is )\S+' release_output.txt)" >> $GITHUB_ENV
+
+      # Update Chart.yaml with the new version
+      - name: Update Helm Chart version
+        run: |
+          sed -i "s/^version: .*/version: ${{ env.NEW_VERSION }}/" Chart.yaml
+
+      # Commit updated Chart.yaml
+      - name: Commit updated Chart.yaml
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add Chart.yaml
+          git commit -m "chore: update Chart.yaml version to ${{ env.NEW_VERSION }}"
+          git push origin main
+
+      # Create GitHub tag with Semantic Release
+      - name: Run Semantic Release (Tag Creation)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -44,6 +67,7 @@ jobs:
 
       # Package the Helm Chart
       - name: Package Helm Chart
+        id: package_helm_chart
         run: |
           helm lint
           helm package .
@@ -57,6 +81,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ env.RELEASE_URL }}
-          asset_path: ${{ env.REPOSITORY_NAME }}.tgz
-          asset_name: ${{ env.REPOSITORY_NAME }}.tgz
+          asset_path: ${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
+          asset_name: ${{ env.REPOSITORY_NAME }}-${{ env.NEW_VERSION }}.tgz
           asset_content_type: application/gzip
