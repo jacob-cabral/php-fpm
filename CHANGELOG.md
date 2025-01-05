@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/jacob-cabral/php-fpm/compare/v1.2.0...v1.2.1) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** change the repository URL ([3890aa1](https://github.com/jacob-cabral/php-fpm/commit/3890aa13d636bff38184178d33ab223e04df9721))
+
 # [1.2.0](https://github.com/jacob-cabral/php-fpm/compare/v1.1.8...v1.2.0) (2025-01-05)
 
 
