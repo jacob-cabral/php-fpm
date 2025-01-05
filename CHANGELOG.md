@@ -1,3 +1,10 @@
+## [1.1.6](https://github.com/jacob-cabral/php-fpm/compare/v1.1.5...v1.1.6) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** change the @semantic-release/github plugin and the Helm Chart package path ([6f9c880](https://github.com/jacob-cabral/php-fpm/commit/6f9c880c4dbdccd30d08f281982360a0ec063f96))
+
 ## [1.1.5](https://github.com/jacob-cabral/php-fpm/compare/v1.1.4...v1.1.5) (2025-01-05)
 
 
