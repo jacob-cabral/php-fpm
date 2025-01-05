@@ -29,7 +29,6 @@ jobs:
 
       # Run Semantic Release to determine the version
       - name: Run Semantic Release (Version Check)
-        id: semantic_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -59,7 +58,6 @@ jobs:
 
       # Package the Helm Chart
       - name: Package Helm Chart
-        id: package_helm_chart
         run: |
           helm lint
           helm package . --destination helm-releases
