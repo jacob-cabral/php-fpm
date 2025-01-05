@@ -29,10 +29,11 @@ jobs:
 
       # Run semantic-release
       - name: Run Semantic Release
-        id: semantic_release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+        run: |
+          npx semantic-release > release_output.txt
+          echo "RELEASE_URL=$(grep -o 'https://github.com/.*' release_output.txt | head -n 1)" >> $GITHUB_ENV
 
       # Install Helm
       - name: Install Helm
@@ -55,7 +56,7 @@ jobs:
       - name: Upload Helm Chart as Release Asset
         uses: actions/upload-release-asset@v1
         with:
-          upload_url: ${{ steps.semantic_release.outputs.release_url }}
+          upload_url: ${{ env.RELEASE_URL }}
           asset_path: ${{ env.REPOSITORY_NAME }}.tgz
           asset_name: ${{ env.REPOSITORY_NAME }}.tgz
           asset_content_type: application/gzip
