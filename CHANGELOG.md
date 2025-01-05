@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/jacob-cabral/php-fpm/compare/v1.1.8...v1.2.0) (2025-01-05)
+
+
+### Features
+
+* **ci:** add the repository index file ([61ca0e3](https://github.com/jacob-cabral/php-fpm/commit/61ca0e3607c11018f9ec48cc910ba4b1f84bd1dc))
+
 ## [1.1.8](https://github.com/jacob-cabral/php-fpm/compare/v1.1.7...v1.1.8) (2025-01-05)
 
 
