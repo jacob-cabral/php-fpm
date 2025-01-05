@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/jacob-cabral/php-fpm/compare/v1.1.2...v1.1.3) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** add the RELEASE_URL variable ([57d31a5](https://github.com/jacob-cabral/php-fpm/commit/57d31a56e62f098cbf6801b869d2703141a33169))
+
 ## [1.1.2](https://github.com/jacob-cabral/php-fpm/compare/v1.1.1...v1.1.2) (2025-01-05)
 
 
