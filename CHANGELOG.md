@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/jacob-cabral/php-fpm/compare/v1.1.1...v1.1.2) (2025-01-05)
+
+
+### Bug Fixes
+
+* **ci:** add the Semantic Release step id ([2fe66c4](https://github.com/jacob-cabral/php-fpm/commit/2fe66c440702e7c7c1e881d94953555c5ac12c83))
+
 ## [1.1.1](https://github.com/jacob-cabral/php-fpm/compare/v1.1.0...v1.1.1) (2025-01-05)
 
 
