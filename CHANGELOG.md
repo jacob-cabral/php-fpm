@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/jacob-cabral/php-fpm/compare/v1.2.1...v1.3.0) (2025-01-19)
+
+
+### Bug Fixes
+
+* **ci:** change the path to the Helm Chart package ([50af050](https://github.com/jacob-cabral/php-fpm/commit/50af050f0609ceb798984fd6dd98363fee40d114))
+* **ci:** set the Helm Chart package as a asset ([137c79f](https://github.com/jacob-cabral/php-fpm/commit/137c79f9f6df8001371258ec258dd7f03cb6419d))
+
+
+### Features
+
+* **ci:** add GitHub Pages ([189a56e](https://github.com/jacob-cabral/php-fpm/commit/189a56edd050fdcf083d9d95707701d0a71db02a))
+
 ## [1.2.1](https://github.com/jacob-cabral/php-fpm/compare/v1.2.0...v1.2.1) (2025-01-05)
 
 
