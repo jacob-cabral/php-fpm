@@ -60,7 +60,7 @@ jobs:
       - name: Package Helm Chart
         run: |
           helm lint
-          helm package . --destination helm-releases
+          helm package .
       
       # Create or update the index file
       - name: Index the Helm Chart repository
