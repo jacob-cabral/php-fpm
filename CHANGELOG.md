@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/jacob-cabral/php-fpm/compare/v1.3.1...v1.3.2) (2025-01-19)
+
+
+### Bug Fixes
+
+* **ci:** delete unnecessary workflow ([238d831](https://github.com/jacob-cabral/php-fpm/commit/238d831fc725468546eb041749ccffa16d1ac077))
+
 ## [1.3.1](https://github.com/jacob-cabral/php-fpm/compare/v1.3.0...v1.3.1) (2025-01-19)
 
 
