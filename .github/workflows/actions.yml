@@ -63,8 +63,8 @@ jobs:
           helm package .
       
       # Create or update the index file
-      - name: Index the Helm Chart repository
-        run: helm repo index helm-releases/ --url "https://github.com/${{ github.repository }}/tree/main/helm-releases/"
+      # - name: Index the Helm Chart repository
+      #   run: helm repo index --url "https://github.com/${{ github.repository }}/tree/main/helm-releases/"
 
       # Commit changes
       - name: Commit changes
