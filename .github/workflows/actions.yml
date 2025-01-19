@@ -120,12 +120,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: shared-helm-chart-package
+          path: pages-artifacts/
       
       # Upload the Helm Chart package to GitHub Pages
       - name: Upload Helm Chart package
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '*.tgz'
+          path: pages-artifacts/
 
       # Deploy the GitHub Pages
       - name: Deploy Pages
