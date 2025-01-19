@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/jacob-cabral/php-fpm/compare/v1.3.0...v1.3.1) (2025-01-19)
+
+
+### Bug Fixes
+
+* **ci:** change the GitHub Pages artifacts path ([e96156c](https://github.com/jacob-cabral/php-fpm/commit/e96156cc89228e4ace575a20ce390985892523dd))
+
 # [1.3.0](https://github.com/jacob-cabral/php-fpm/compare/v1.2.1...v1.3.0) (2025-01-19)
 
 
