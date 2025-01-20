@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/jacob-cabral/php-fpm/compare/v1.3.2...v1.4.0) (2025-01-20)
+
+
+### Features
+
+* add the Helm Chart repo index file ([737e99a](https://github.com/jacob-cabral/php-fpm/commit/737e99ae5a54253feb6b86c517e308a0e2378f84))
+
 ## [1.3.2](https://github.com/jacob-cabral/php-fpm/compare/v1.3.1...v1.3.2) (2025-01-19)
 
 
