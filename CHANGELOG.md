@@ -1,3 +1,10 @@
+## [1.4.4](https://github.com/jacob-cabral/php-fpm/compare/v1.4.3...v1.4.4) (2025-01-20)
+
+
+### Bug Fixes
+
+* **ci:** get the updated Helm Chart index file ([50fe250](https://github.com/jacob-cabral/php-fpm/commit/50fe2501ea4972c7b8cee244ceb6647c970111d8))
+
 ## [1.4.3](https://github.com/jacob-cabral/php-fpm/compare/v1.4.2...v1.4.3) (2025-01-20)
 
 
