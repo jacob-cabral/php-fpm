@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/jacob-cabral/php-fpm/compare/v1.4.2...v1.4.3) (2025-01-20)
+
+
+### Bug Fixes
+
+* **ci:** change the GitHub Actions job name ([b8347c1](https://github.com/jacob-cabral/php-fpm/commit/b8347c1b3cc2ad9979ace56595697002096d788b))
+
 ## [1.4.2](https://github.com/jacob-cabral/php-fpm/compare/v1.4.1...v1.4.2) (2025-01-20)
 
 
