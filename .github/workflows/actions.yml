@@ -81,8 +81,8 @@ jobs:
         run: |
           git config user.name "${{ github.event.pusher.name }}"
           git config user.email "${{ github.event.pusher.email }}"
-          git add Chart.yaml
-          git commit -m "chore: update the Helm Chart version"
+          git add Chart.yaml index.yaml
+          git commit -m "chore: update the Helm Chart version and index"
           git push
 
       # Create GitHub tag with Semantic Release
