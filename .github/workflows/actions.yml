@@ -68,13 +68,6 @@ jobs:
           helm lint
           helm package .
 
-      # Share the Helm Chart package
-      - name: Share Helm Chart package
-        uses: actions/upload-artifact@v3
-        with:
-          name: shared-helm-chart-package
-          path: '*.tgz'
-
       # Create or update the index file
       - name: Index the Helm Chart repository
         run: |
@@ -105,6 +98,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      contents: read
       pages: write
       id-token: write
 
@@ -119,22 +113,19 @@ jobs:
       cancel-in-progress: false
 
     steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       # Setup the GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
       
-      # Download the shared Helm Chart package
-      - name: Download Helm Chart package
-        uses: actions/download-artifact@v3
-        with:
-          name: shared-helm-chart-package
-          path: pages-artifacts/
-      
-      # Upload the Helm Chart package to GitHub Pages
+      # Upload the Helm Chart repo index file
       - name: Upload Helm Chart package
         uses: actions/upload-pages-artifact@v3
         with:
-          path: pages-artifacts/
+          path: index.yaml
 
       # Deploy the GitHub Pages
       - name: Deploy Pages
