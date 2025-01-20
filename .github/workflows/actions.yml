@@ -74,7 +74,7 @@ jobs:
           baseUrl="${{ github.server_url }}/${{ github.repository }}"
           entry="$(basename ${{ github.repository }})"
           helm repo index --merge index.yaml .
-          yq "$(printf '.entries.%s[] |= (. as $entry | .urls |= map("%s/" + $entry.version + "/" + .))' ${entry} ${prefixo})" index.yaml
+          yq "$(printf '.entries.%s[] |= (. as $entry | .urls |= map("%s/" + $entry.version + "/" + .))' ${entry} ${prefixo})" --inplace index.yaml
 
       # Commit changes
       - name: Commit changes
