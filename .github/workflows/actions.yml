@@ -76,6 +76,14 @@ jobs:
           git add Chart.yaml index.yaml
           git commit -m "chore: update the Helm Chart version and index"
           git push
+      
+      # Share the Helm Chart repo files
+      - name: Share Helm Chart repo files
+        uses: actions/upload-artifact@v3
+        with:
+          name: shared-helm-chart-repo-files
+          path: 'index.yaml'
+
 
       # Create GitHub tag with Semantic Release
       - name: Run Semantic Release (Tag Creation)
@@ -105,21 +113,18 @@ jobs:
       cancel-in-progress: false
 
     steps:
-      # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
       # Setup the GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # Prepare the GitHub Pages assets
-      - name: Prepare the Pages assets
-        run: |
-          mkdir assets
-          cp index.yaml assets
+      # Download the shared Helm Chart repo files
+      - name: Download Helm Chart package
+        uses: actions/download-artifact@v3
+        with:
+          name: shared-helm-chart-repo-files
+          path: assets
 
-      # Upload the Helm Chart repo index file
+      # Upload the Helm Chart repo files
       - name: Upload Helm Chart package
         uses: actions/upload-pages-artifact@v3
         with:
