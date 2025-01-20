@@ -25,8 +25,8 @@ jobs:
         with:
           node-version: '18'
 
-      # Install dependencies
-      - name: Install Dependencies
+      # Install NPM dependencies
+      - name: Install NPM dependencies
         run: npm install
 
       # Run Semantic Release to determine the version
