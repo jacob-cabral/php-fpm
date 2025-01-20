@@ -17,7 +17,7 @@ entries:
     - https://github.com/jacob-cabral/php-fpm
     type: application
     urls:
-    - php-fpm-1.4.0.tgz
+    - https://github.com/jacob-cabral/php-fpm/releases/download/v1.4.0/php-fpm-1.4.0.tgz
     version: 1.4.0
   - apiVersion: v2
     appVersion: 8.3.4-fpm
