@@ -85,7 +85,7 @@ jobs:
           npx semantic-release
 
   deploy:
-    name: Publish the Helm Chart package to GitHub Pages
+    name: Publish the Helm Chart info to GitHub Pages
     needs: release
     runs-on: ubuntu-latest
 
