@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/jacob-cabral/php-fpm/compare/v1.4.1...v1.4.2) (2025-01-20)
+
+
+### Bug Fixes
+
+* **ci:** ignore the CI/CD output files ([5160298](https://github.com/jacob-cabral/php-fpm/commit/516029821a7895f1b4df939dfe52484454c110d5))
+
 ## [1.4.1](https://github.com/jacob-cabral/php-fpm/compare/v1.4.0...v1.4.1) (2025-01-20)
 
 
