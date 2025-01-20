@@ -1,3 +1,12 @@
+## [1.4.1](https://github.com/jacob-cabral/php-fpm/compare/v1.4.0...v1.4.1) (2025-01-20)
+
+
+### Bug Fixes
+
+* **ci:** define the GitHub Pages assets dir ([3c602f2](https://github.com/jacob-cabral/php-fpm/commit/3c602f2edba08bd62a284b6a0f906126435b7cb8))
+* **ci:** update the Helm Chart index file ([3c2e31c](https://github.com/jacob-cabral/php-fpm/commit/3c2e31c08bd08b7ee955090f74e63ecc6d4a01e1))
+* **ci:** update the Helm Chart package URL ([64bbb51](https://github.com/jacob-cabral/php-fpm/commit/64bbb519cddca11e0cb2caa15082a298f7da946c))
+
 # [1.4.0](https://github.com/jacob-cabral/php-fpm/compare/v1.3.2...v1.4.0) (2025-01-20)
 
 
