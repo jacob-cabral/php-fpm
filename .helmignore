@@ -21,3 +21,11 @@
 .idea/
 *.tmproj
 .vscode/
+# Binary files
+*.out
+*.exe
+*.dll
+*.so
+# Helm Chart packages
+*.tgz
+charts/*.tgz
