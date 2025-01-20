@@ -120,12 +120,18 @@ jobs:
       # Setup the GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      
+
+      # Prepare the GitHub Pages assets
+      - name: Prepare the Pages assets
+        run: |
+          mkdir assets
+          cp index.yaml assets
+
       # Upload the Helm Chart repo index file
       - name: Upload Helm Chart package
         uses: actions/upload-pages-artifact@v3
         with:
-          path: index.yaml
+          path: assets
 
       # Deploy the GitHub Pages
       - name: Deploy Pages
