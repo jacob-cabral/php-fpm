@@ -58,6 +58,10 @@ jobs:
           chmod +x get_helm.sh
           ./get_helm.sh
 
+      # Install YAML Processor
+      - name: Install YAML Processor
+        run: sudo snap install yq --stable
+
       # Package the Helm Chart
       - name: Package Helm Chart
         run: |
@@ -72,8 +76,12 @@ jobs:
           path: '*.tgz'
 
       # Create or update the index file
-      # - name: Index the Helm Chart repository
-      #   run: helm repo index --url "https://github.com/${{ github.repository }}/tree/main/helm-releases/"
+      - name: Index the Helm Chart repository
+        run: |
+          baseUrl="${{ github.server_url }}/${{ github.repository }}"
+          entry="$(basename ${{ github.repository }})"
+          helm repo index --merge index.yaml .
+          yq "$(printf '.entries.%s[] |= (. as $entry | .urls |= map("%s/" + $entry.version + "/" + .))' ${entry} ${prefixo})" index.yaml
 
       # Commit changes
       - name: Commit changes
