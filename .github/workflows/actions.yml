@@ -35,7 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx semantic-release --dry-run | tee release_output.txt
-          echo "NEW_VERSION=$(grep -oP '(?<=The next release version is )\S+' release_output.txt)" >> $GITHUB_ENV
+          echo "NEW_VERSION=$(grep -oP '(?<=next release version is )\S+' release_output.txt)" >> $GITHUB_ENV
       
       # Fail if the NEW_VERSION is empty
       - name: Ensure non empty Helm Chart version
