@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/jacob-cabral/php-fpm/compare/v1.4.4...v1.4.5) (2025-01-23)
+
+
+### Bug Fixes
+
+* **ci:** change the new version filter ([7c541b0](https://github.com/jacob-cabral/php-fpm/commit/7c541b0ecf29d18f752b133738c024278f337c8b))
+
 ## [1.4.4](https://github.com/jacob-cabral/php-fpm/compare/v1.4.3...v1.4.4) (2025-01-20)
 
 
