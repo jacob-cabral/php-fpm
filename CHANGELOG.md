@@ -1,3 +1,10 @@
+## [1.4.6](https://github.com/jacob-cabral/php-fpm/compare/v1.4.5...v1.4.6) (2025-01-24)
+
+
+### Bug Fixes
+
+* **ci:** add entries to ignore while packaging the Helm Chart ([56e4405](https://github.com/jacob-cabral/php-fpm/commit/56e440533c49501802c07e0de1814adfe2467bdd))
+
 ## [1.4.5](https://github.com/jacob-cabral/php-fpm/compare/v1.4.4...v1.4.5) (2025-01-23)
 
 
