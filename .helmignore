@@ -5,6 +5,7 @@
 # Common VCS dirs
 .git/
 .gitignore
+.github/
 .bzr/
 .bzrignore
 .hg/
@@ -26,9 +27,10 @@
 *.exe
 *.dll
 *.so
-# Helm Chart packages
+# Helm Chart files
 *.tgz
 charts/*.tgz
+.helmignore
 # CI/CD files
 node_modules/
 get_helm.sh
