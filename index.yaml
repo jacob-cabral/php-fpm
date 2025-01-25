@@ -3,6 +3,24 @@ entries:
   php-fpm:
   - apiVersion: v2
     appVersion: 8.3.4-fpm
+    created: "2025-01-25T01:23:39.383119337Z"
+    description: A Helm Chart to deploy a PHP FPM application
+    digest: 222a9c6a25d83a0d5bfaf216ae7cbf8a531479fcf09b273293bfc925e05e51cf
+    keywords:
+    - php-fpm
+    - php
+    - fpm
+    - fastcgi
+    - backend
+    name: php-fpm
+    sources:
+    - https://github.com/jacob-cabral/php-fpm
+    type: application
+    urls:
+    - https://github.com/jacob-cabral/php-fpm/releases/download/v1.4.7/php-fpm-1.4.7.tgz
+    version: 1.4.7
+  - apiVersion: v2
+    appVersion: 8.3.4-fpm
     created: "2025-01-24T18:16:30.073474082Z"
     description: A Helm Chart to deploy a PHP FPM application
     digest: 50bc1280b92f9457b7883224f4e1ad11851195f859e583584919e0c767381c94
@@ -181,4 +199,4 @@ entries:
     urls:
     - https://github.com/jacob-cabral/php-fpm/releases/download/v1.3.0/php-fpm-1.3.0.tgz
     version: 1.3.0
-generated: "2025-01-24T18:16:30.071621284Z"
+generated: "2025-01-25T01:23:39.382107843Z"
