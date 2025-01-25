@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/jacob-cabral/php-fpm/compare/v1.4.6...v1.4.7) (2025-01-25)
+
+
+### Bug Fixes
+
+* **ci:** add the .helmignore to the package ([36035f7](https://github.com/jacob-cabral/php-fpm/commit/36035f794b871b03c70a7a8eb43014a887183699))
+
 ## [1.4.6](https://github.com/jacob-cabral/php-fpm/compare/v1.4.5...v1.4.6) (2025-01-24)
 
 
