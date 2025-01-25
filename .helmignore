@@ -30,7 +30,6 @@
 # Helm Chart files
 *.tgz
 charts/*.tgz
-.helmignore
 # CI/CD files
 node_modules/
 get_helm.sh
