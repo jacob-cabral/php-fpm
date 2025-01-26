@@ -233,14 +233,3 @@ data:
     {{- include "php-fpm.pool.php_flag" . | nindent 4 }}
     {{- include "php-fpm.pool.php_admin_value" . | nindent 4 }}
     {{- include "php-fpm.pool.php_admin_flag" . | nindent 4 }}
-kind: ConfigMap
-apiVersion: v1
-metadata:
-  name: {{ include "php-fpm.fullname" . }}-php-conf
-  labels:
-    {{- include "php-fpm.labels" . | nindent 4 }}
-data:
-  {{- if .Values.pool.extraConfFiles }}
-  {{ (.Files.Glob .Values.pool.extraConfFiles).AsConfig | nindent 2 }}
-  {{- end }}
-  {{ (.Files.Glob "files/php-fpm.d/*").AsConfig | nindent 2 }}
