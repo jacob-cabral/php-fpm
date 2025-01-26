@@ -48,6 +48,9 @@ spec:
           volumeMounts:
             - name: php-pool
               mountPath: /usr/local/etc/php-fpm.d/
+          {{- with .Values.extraVolumeMounts }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -65,3 +68,6 @@ spec:
           configMap:
             name: {{ include "php-fpm.fullname" . }}-php-pool
             defaultMode: 0440
+      {{- with .Values.extraVolumes }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

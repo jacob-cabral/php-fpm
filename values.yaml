@@ -88,3 +88,9 @@ pool:
   clear_env: "no"
 
 extraConfFiles: {}
+
+extraVolumes: []
+
+extraVolumeMounts: []
+
+persistentVolumeClaims: []
