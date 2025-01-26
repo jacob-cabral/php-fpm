@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/jacob-cabral/php-fpm/compare/v1.4.8...v1.4.9) (2025-01-26)
+
+
+### Bug Fixes
+
+* delete wrong and unused ConfigMap ([fdf63b8](https://github.com/jacob-cabral/php-fpm/commit/fdf63b820675f74d4ed8cd4ab9667d695e51b283))
+
 ## [1.4.8](https://github.com/jacob-cabral/php-fpm/compare/v1.4.7...v1.4.8) (2025-01-26)
 
 
