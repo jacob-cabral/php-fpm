@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/jacob-cabral/php-fpm/compare/v1.4.9...v1.5.0) (2025-01-26)
+
+
+### Features
+
+* add support to extra volumes ([ee18942](https://github.com/jacob-cabral/php-fpm/commit/ee189423475dae0a4eefaa1efe6c307d3bcf7f9b))
+
 ## [1.4.9](https://github.com/jacob-cabral/php-fpm/compare/v1.4.8...v1.4.9) (2025-01-26)
 
 
