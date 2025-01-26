@@ -1,3 +1,10 @@
+## [1.4.8](https://github.com/jacob-cabral/php-fpm/compare/v1.4.7...v1.4.8) (2025-01-26)
+
+
+### Bug Fixes
+
+* add extra .conf files from values.yaml ([235054f](https://github.com/jacob-cabral/php-fpm/commit/235054f86d119146eee8a6cb995e1897a81f02b8))
+
 ## [1.4.7](https://github.com/jacob-cabral/php-fpm/compare/v1.4.6...v1.4.7) (2025-01-25)
 
 
